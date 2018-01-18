@@ -41,6 +41,16 @@ def delete_contact(contact_list, name):
             del contact_list[i]
 
 
+def store_contact(contact_list):
+    f = open("contact_db.txt", "wt")
+    for contact in contact_list:
+        f.write(contact.name + '\n')
+        f.write(contact.phone_number + '\n')
+        f.write(contact.e_mail + '\n')
+        f.write(contact.addr + '\n')
+    f.close()
+
+
 def run():
     contact_list = []
     while 1:
@@ -54,6 +64,7 @@ def run():
             name = input("Name: ")
             delete_contact(contact_list, name)
         elif menu == 4:
+            store_contact(contact_list)
             break
 
 
