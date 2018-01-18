@@ -51,8 +51,25 @@ def store_contact(contact_list):
     f.close()
 
 
+def load_contact(contact_list):
+    f = open("contact_db.txt", "rt")
+    lines = f.readlines()
+    num = len(lines) / 4
+    num = int(num)
+
+    for i in range(num):
+        name = lines[4*i].rstrip('\n')
+        phone = lines[4*i+1].rstrip('\n')
+        email = lines[4*i+2].rstrip('\n')
+        addr = lines[4*i+3].rstrip('\n')
+        contact = Contact(name, phone, email, addr)
+        contact_list.append(contact)
+    f.close()
+
+
 def run():
     contact_list = []
+    load_contact(contact_list)
     while 1:
         menu = print_menu()
         if menu == 1:
