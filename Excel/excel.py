@@ -8,4 +8,5 @@ ws.Cells(2, 1).Value = "Python"
 ws.Cells(2, 2).Value = "is"
 ws.Range("C2").Value = "good"
 ws.Range("C2").Interior.ColorIndex = 10
+ws.Range("A3:C3").Interior.ColorIndex = 27
 excel.Quit()
